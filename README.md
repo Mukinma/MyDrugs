@@ -1,2 +1,74 @@
-# MyDrugs
-Recreación moderna de la interfaz ficticia 'MyDrugs' de la serie How to Sell Drugs Online (Fast). Diseño responsive con sidebar fijo, catálogo interactivo y elementos narrativos en tiempo real. Construido con Next.js y Tailwind CSS.
+# 💊 MyDrugs – Darknet UI Recreation
+
+_Recreación moderna e interactiva de la ficticia tienda online **MyDrugs** inspirada en la serie **How to Sell Drugs Online (Fast)**.  
+Una experiencia visual que combina narrativa en tiempo real, estética clandestina y tecnologías modernas._
+
+---
+
+## 🛰 Estado del Sistema
+
+[✔] Conexión segura establecida a través de 3 nodos
+[✔] 5 pedidos procesados en la última hora
+[✔] 2 proveedores nuevos verificados
+[⚠] Se detectó un intento de acceso no autorizado (bloqueado)
+
+
+---
+
+## ✨ Características
+
+- 🎯 **Diseño responsive** adaptado a móviles y desktop.
+- 🖥 **Sidebar fijo** para navegación rápida y minimalista.
+- 📦 **Catálogo interactivo** con productos destacados y efectos hover.
+- 📡 **Elementos narrativos en tiempo real**: mensajes del sistema, estado de red, proveedores verificados.
+- 🛡 **Modo Panic** para cambiar a una interfaz segura con un clic (concepto narrativo).
+- 🎨 Estética inspirada en la **dark web**, pero con un look pulido y actual.
+
+---
+
+## 🖼 Vista previa
+> _Capturas de pantalla o GIF de la interfaz en acción._
+  
+![Screenshot](./screenshot.png)
+
+---
+
+## 🛠 Tecnologías utilizadas
+
+- **Next.js 14+**
+- **Tailwind CSS**
+- **shadcn/ui**
+- **Lucide Icons**
+
+---
+
+## 🚀 Instalación y uso
+
+```bash
+# Clonar repositorio
+git clone https://github.com/tuusuario/mydrugs-ui.git
+
+# Entrar al proyecto
+cd mydrugs-ui
+
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+```
+
+📜 Licencia
+
+Este proyecto está bajo la licencia Creative Commons BY-NC-SA 4.0.
+No se permite el uso comercial. Las obras derivadas deben compartirse bajo la misma licencia.
+Más información en el archivo LICENSE.
+⚠️ Aviso
+
+Este proyecto es únicamente con fines educativos y recreativos.
+No promueve ni facilita actividades ilegales. Todo el contenido es ficticio e inspirado en una obra de ficción.
+💡 Créditos
+
+    Inspirado por la serie How to Sell Drugs Online (Fast) de Netflix.
+
+    Desarrollado por [Tu Nombre o Alias].
