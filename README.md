@@ -5,16 +5,6 @@ Una experiencia visual que combina narrativa en tiempo real, estética clandesti
 
 ---
 
-## 🛰 Estado del Sistema
-
-[✔] Conexión segura establecida a través de 3 nodos
-[✔] 5 pedidos procesados en la última hora
-[✔] 2 proveedores nuevos verificados
-[⚠] Se detectó un intento de acceso no autorizado (bloqueado)
-
-
----
-
 ## ✨ Características
 
 - 🎯 **Diseño responsive** adaptado a móviles y desktop.
@@ -71,4 +61,4 @@ No promueve ni facilita actividades ilegales. Todo el contenido es ficticio e in
 
     Inspirado por la serie How to Sell Drugs Online (Fast) de Netflix.
 
-    Desarrollado por [Tu Nombre o Alias].
+    Desarrollado por Mukinma.
