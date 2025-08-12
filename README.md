@@ -17,7 +17,7 @@ Una experiencia visual que combina narrativa en tiempo real, estética clandesti
 ---
 
 ## 🖼 Vista previa
-> _Capturas de pantalla o GIF de la interfaz en acción._
+> _Capturas de pantalla del prototipo inicial de la página._
   
 ![Screenshot](./screenshot.png)
 
