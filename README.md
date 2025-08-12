@@ -58,6 +58,7 @@ Más información en el archivo LICENSE.
 
 Este proyecto es únicamente con fines educativos y recreativos.
 No promueve ni facilita actividades ilegales. Todo el contenido es ficticio e inspirado en una obra de ficción.
+
 💡 Créditos
 
 Inspirado por la serie How to Sell Drugs Online (Fast) de Netflix.
