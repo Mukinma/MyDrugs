@@ -1,4 +1,4 @@
-# 💊 MyDrugs – Darknet UI Recreation
+# 💊 MyDrugs – Modern Recreation
 
 _Recreación moderna e interactiva de la ficticia tienda online **MyDrugs** inspirada en la serie **How to Sell Drugs Online (Fast)**.  
 Una experiencia visual que combina narrativa en tiempo real, estética clandestina y tecnologías modernas._
@@ -53,12 +53,13 @@ npm run dev
 Este proyecto está bajo la licencia Creative Commons BY-NC-SA 4.0.
 No se permite el uso comercial. Las obras derivadas deben compartirse bajo la misma licencia.
 Más información en el archivo LICENSE.
+
 ⚠️ Aviso
 
 Este proyecto es únicamente con fines educativos y recreativos.
 No promueve ni facilita actividades ilegales. Todo el contenido es ficticio e inspirado en una obra de ficción.
 💡 Créditos
 
-    Inspirado por la serie How to Sell Drugs Online (Fast) de Netflix.
+Inspirado por la serie How to Sell Drugs Online (Fast) de Netflix.
 
-    Desarrollado por Mukinma.
+Desarrollado por Mukinma.
