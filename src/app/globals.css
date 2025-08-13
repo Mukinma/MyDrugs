@@ -171,6 +171,16 @@ body::after {
   }
 }
 
+/* Fuerza animación continua para casos puntuales (e.g., título del hero) */
+.rainbow-animate {
+  animation: rainbow-shift 10s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rainbow-animate {
+    animation: none !important;
+  }
+}
+
 @keyframes rainbow-shift {
   0% {
     background-position: 0% 50%;

@@ -87,10 +87,12 @@ export default function BannerRotator({ items = null, intervalMs = 7000, classNa
 
   const trackWidth = `${data.length * 100}%`;
   const offset = `-${(index * 100) / data.length}%`;
+  const animating = !prefersReduced && !manualPause && !hovering && data.length > 1;
+  const currentAccent = data[index]?.accent ?? "#22d3ee";
 
   return (
     <div
-      className={`relative mx-auto min-h-24 w-full max-w-full overflow-hidden rounded-2xl border border-white/10 bg-[#0e0e0e] ring-1 ring-white/10 md:min-h-28 ${className}`}
+      className={`banner-rotator relative mx-auto min-h-24 w-full max-w-full overflow-hidden rounded-2xl border border-white/10 bg-[#0e0e0e] ring-1 ring-white/10 md:min-h-28 ${className}`}
       role="region"
       aria-label="Información útil"
       onMouseEnter={() => setHovering(true)}
@@ -114,6 +116,25 @@ export default function BannerRotator({ items = null, intervalMs = 7000, classNa
           <Slide key={item.id} item={item} total={data.length} />
         ))}
       </div>
+
+      {/* Bottom progress bar (animated only when rotando) */}
+      {animating && (
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0"
+          key={`progress-${index}-${manualPause ? "p" : "r"}-${hovering ? "h" : "n"}`}
+        >
+          <div className="mx-auto h-[2px] max-w-6xl overflow-hidden rounded-b-xl bg-white/5">
+            <div
+              className="progress h-full"
+              style={{
+                background: `linear-gradient(90deg, ${currentAccent}cc, ${currentAccent}66)`,
+                animationDuration: `${intervalMs}ms`,
+                willChange: "width",
+              }}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Dots - bottom-left */}
       <div className="pointer-events-none absolute bottom-2 left-1/2 hidden -translate-x-1/2 sm:block">
@@ -168,11 +189,33 @@ function Slide({ item, total }: { item: InfoItem; total: number }) {
   return (
     <div className="flex h-full flex-shrink-0 p-3 md:p-4" style={{ width: `${100 / total}%` }}>
       <div
-        className="flex h-full w-full items-start gap-4 rounded-xl border border-white/10 bg-white/[0.025] p-4 ring-1 ring-white/10 md:items-center md:gap-5"
-        style={{ boxShadow: `${item.accent ?? "#22d3ee"}22 0 0 0 1px inset` }}
+        className="relative flex h-full w-full items-start gap-4 rounded-xl border border-white/10 bg-white/[0.025] p-4 ring-1 ring-white/10 md:items-center md:gap-5"
+        style={{
+          boxShadow: `${item.accent ?? "#22d3ee"}22 0 0 0 1px inset, 0 0 24px ${item.accent ?? "#22d3ee"}12`,
+        }}
       >
+        {/* Accent top bar */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-[2px]"
+          style={{
+            background: `linear-gradient(90deg, ${item.accent ?? "#22d3ee"}88, transparent 60%)`,
+          }}
+        />
+        {/* Soft radial accent */}
+        <div
+          className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full blur-3xl"
+          style={{ background: `${item.accent ?? "#22d3ee"}24` }}
+        />
         <div className="grid size-10 flex-shrink-0 place-items-center rounded-lg border border-white/10 bg-white/5 text-white/90">
-          <Icon kind={item.icon} />
+          <div
+            className="grid size-10 place-items-center rounded-md"
+            style={{
+              background: `${item.accent ?? "#22d3ee"}1a`,
+              boxShadow: `inset 0 0 0 1px ${item.accent ?? "#22d3ee"}33`,
+            }}
+          >
+            <Icon kind={item.icon} />
+          </div>
         </div>
         <div className="min-w-0 leading-relaxed">
           <div className="text-base font-semibold text-white md:text-lg">{item.title}</div>

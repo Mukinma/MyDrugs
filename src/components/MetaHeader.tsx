@@ -29,7 +29,7 @@ export default function MetaHeader({
       <div className="space-y-2">
         <h1
           className={`text-2xl font-semibold tracking-tight md:text-3xl ${
-            rainbowTitle ? "rainbow-text" : "text-slate-50"
+            rainbowTitle ? "rainbow-text rainbow-animate" : "text-slate-50"
           }`}
         >
           {title}

@@ -29,7 +29,7 @@ export function Hero() {
         <div className="mt-10 flex items-center gap-3">
           <a
             href="#catalog"
-            className="btn-glitch-lite btn-halo relative inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:outline-none"
+            className="btn-glitch-lite btn-halo relative inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold shadow-lg ring-1 shadow-cyan-500/10 ring-white/15 transition hover:ring-white/25 focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:outline-none md:text-base"
             aria-label="Ir al catálogo"
           >
             Ver catálogo
@@ -48,17 +48,17 @@ export function Hero() {
           </a>
           <a
             href="#about"
-            className="inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm opacity-90 transition hover:opacity-100"
+            className="inline-flex items-center gap-1 text-xs text-white/70 underline-offset-4 transition hover:text-white/90 hover:underline md:text-sm"
           >
             Acerca del proyecto
           </a>
         </div>
 
         {/* mobile nudge to catalog */}
-        <div className="mt-12 flex items-center justify-center md:hidden">
+        <div className="mt-10 flex items-center justify-center md:hidden">
           <a
             href="#catalog"
-            className="group inline-flex items-center gap-1 text-xs text-white/75 hover:text-white"
+            className="group inline-flex items-center gap-1 text-xs text-white/70 hover:text-white"
           >
             Ir al catálogo
             <svg
@@ -94,7 +94,7 @@ export function Hero() {
               </div>
               <div className="md:ml-auto">
                 <a
-                  href="#faq"
+                  href="/faq"
                   className="inline-flex items-center justify-center rounded-md border border-white/15 bg-white/5 px-3 py-1.5 text-sm text-white transition hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:outline-none"
                 >
                   Ver FAQ

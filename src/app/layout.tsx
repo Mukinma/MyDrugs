@@ -4,6 +4,8 @@ import "./globals.css";
 import Script from "next/script";
 import AmplitudeInitializer from "@/components/AmplitudeInitializer";
 import Providers from "@/components/Providers";
+import SideBar from "@/components/SideBar";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,15 +29,26 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Script
           src="https://cdn.amplitude.com/libs/analytics-browser-2.11.9-min.js.gz"
           strategy="afterInteractive"
         />
         <AmplitudeInitializer />
-        <Providers>{children}</Providers>
+        <Providers>
+          <Suspense fallback={null}>
+            <SideBar
+              links={[
+                { label: "Inicio", href: "/" },
+                { label: "Catálogo", href: "/#catalog" },
+                { label: "Acerca", href: "/#about" },
+                { label: "FAQ", href: "/faq" },
+                { label: "Safety", href: "/safety" },
+              ]}
+            />
+          </Suspense>
+          <div className="min-h-screen md:pl-[calc(18rem+1rem)]">{children}</div>
+        </Providers>
       </body>
     </html>
   );
