@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # 💊 MyDrugs – Modern Recreation
 
 _Recreación moderna e interactiva de la ficticia tienda online **MyDrugs** inspirada en la serie **How to Sell Drugs Online (Fast)**.  
