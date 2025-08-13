@@ -3,13 +3,7 @@
 import { ProductCard, type Product } from "@/components/ProductCard";
 import { useSearchParams } from "next/navigation";
 
-export function ProductGrid({
-  products,
-  id,
-}: {
-  products: Product[];
-  id?: string;
-}) {
+export function ProductGrid({ products, id }: { products: Product[]; id?: string }) {
   const params = useSearchParams();
   const q = (params.get("q") || "").toLowerCase().trim();
   const cat = params.get("cat");
@@ -23,16 +17,11 @@ export function ProductGrid({
     return matchesQ && matchesCat;
   });
   return (
-    <section id={id} className="py-8 md:py-12">
+    <section id={id} className="py-16 md:py-12">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-4 flex items-end justify-between md:mb-6">
-          <h2 className="font-mono text-xs tracking-widest uppercase opacity-70">
-            Catálogo
-          </h2>
-          <a
-            href="#"
-            className="text-xs underline-offset-4 opacity-80 hover:underline"
-          >
+          <h2 className="font-mono text-xs tracking-widest uppercase opacity-70">Catálogo</h2>
+          <a href="#" className="text-xs underline-offset-4 opacity-80 hover:underline">
             Ver todo
           </a>
         </div>

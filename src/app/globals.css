@@ -2,7 +2,7 @@
 
 :root {
   /* Force dark palette */
-  --background: #111111;
+  --background: #141414; /* slightly lighter for better readability */
   --foreground: #ededed;
   --sidebar-bg: var(--background);
   --sidebar-border: rgba(255, 255, 255, 0.15);
@@ -16,6 +16,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* Utilities */
@@ -104,4 +107,215 @@ body {
   .banner-rotator .progress {
     animation: none !important;
   }
+}
+
+/* Ticker horizontal animation */
+@keyframes tickerScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.ticker-track {
+  animation: tickerScroll linear infinite;
+}
+.ticker-track.paused {
+  animation-play-state: paused;
+}
+
+/* Global side fades across the entire viewport */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  pointer-events: none;
+  z-index: 30; /* above backgrounds, below focus rings and modals */
+}
+body::before {
+  left: 0;
+  background: linear-gradient(to right, #000000, transparent);
+  opacity: 0.35;
+}
+body::after {
+  right: 0;
+  background: linear-gradient(to left, #000000, transparent);
+  opacity: 0.35;
+}
+@media (min-width: 768px) {
+  body::before,
+  body::after {
+    width: 48px;
+    opacity: 0.45;
+  }
+}
+
+/* Rainbow gradient text effect */
+.rainbow-text {
+  background-image: linear-gradient(90deg, #ff5f6d, #ffc371, #47c2ff, #a78bfa, #ff5f6d);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Suavizar: animar solo al pasar el cursor y más lento, respetando preferencias */
+@media (prefers-reduced-motion: no-preference) {
+  .rainbow-text:hover {
+    animation: rainbow-shift 12s linear infinite;
+  }
+}
+
+@keyframes rainbow-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* Multi-color glitch button */
+.btn-glitch {
+  position: relative;
+  background-image: linear-gradient(90deg, #f472b6, #facc15, #22d3ee, #a78bfa, #f472b6);
+  background-size: 300% 100%;
+  color: #0a0a0a;
+  box-shadow: 0 0 24px rgba(147, 197, 253, 0.18);
+  transition: transform 120ms ease;
+  animation: rainbow-shift 5.5s linear infinite;
+}
+.btn-glitch:hover {
+  transform: translateY(-1px) scale(1.015);
+}
+.btn-glitch:active {
+  transform: translateY(0);
+}
+.btn-glitch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 2px,
+    rgba(255, 255, 255, 0.05) 2px 3px
+  );
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+.btn-glitch:hover::after {
+  opacity: 1;
+}
+
+/* Subtle animated halo around buttons */
+@keyframes halo-pulse {
+  0% {
+    /* red, orange */
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 0 0 4px rgba(255, 87, 87, 0.1),
+      /* red */ 0 0 0 8px rgba(255, 159, 26, 0.08),
+      /* orange */ 0 0 20px rgba(255, 87, 87, 0.12);
+  }
+  20% {
+    /* orange, yellow */
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+      0 0 0 4px rgba(255, 159, 26, 0.1),
+      /* orange */ 0 0 0 8px rgba(250, 204, 21, 0.1),
+      /* yellow */ 0 0 22px rgba(250, 204, 21, 0.14);
+  }
+  40% {
+    /* yellow, green */
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 0 0 4px rgba(250, 204, 21, 0.1),
+      /* yellow */ 0 0 0 8px rgba(34, 197, 94, 0.1),
+      /* green */ 0 0 24px rgba(34, 197, 94, 0.16);
+  }
+  60% {
+    /* green, blue */
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 0 0 4px rgba(34, 197, 94, 0.1),
+      /* green */ 0 0 0 8px rgba(59, 130, 246, 0.1),
+      /* blue */ 0 0 26px rgba(59, 130, 246, 0.16);
+  }
+  80% {
+    /* blue, indigo */
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+      0 0 0 4px rgba(59, 130, 246, 0.1),
+      /* blue */ 0 0 0 8px rgba(99, 102, 241, 0.1),
+      /* indigo */ 0 0 24px rgba(99, 102, 241, 0.16);
+  }
+  100% {
+    /* violet, red (loop) */
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 0 0 4px rgba(167, 139, 250, 0.1),
+      /* violet */ 0 0 0 8px rgba(255, 87, 87, 0.1),
+      /* red */ 0 0 20px rgba(167, 139, 250, 0.14);
+  }
+}
+/* Halo solo en interacción para reducir fatiga visual */
+.btn-halo:hover,
+.btn-halo:focus-visible {
+  animation: halo-pulse 3.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-halo {
+    animation: none !important;
+  }
+}
+/* Subtle, legible glitch-like button */
+@keyframes glitch-wiggle {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-0.2px);
+  }
+  40% {
+    transform: translateX(0.2px);
+  }
+  60% {
+    transform: translateX(-0.1px);
+  }
+  80% {
+    transform: translateX(0.1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.btn-glitch-lite {
+  background: #0b0b0b;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transition:
+    background 150ms ease,
+    transform 120ms ease,
+    box-shadow 150ms ease,
+    text-shadow 150ms ease;
+}
+.btn-glitch-lite:hover {
+  background: #0e0e0e;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 0 3px rgba(0, 229, 255, 0.08);
+  text-shadow:
+    -0.3px 0 #00e5ff,
+    0.3px 0 #ff00aa;
+  animation: glitch-wiggle 220ms ease;
+}
+.btn-glitch-lite:active {
+  transform: translateY(0);
 }
