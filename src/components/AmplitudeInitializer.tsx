@@ -4,11 +4,19 @@ import { useEffect } from "react";
 
 export default function AmplitudeInitializer() {
   useEffect(() => {
-    const w = window as any;
-    if (!w.amplitude?.init) return;
+    if (typeof window === "undefined") return;
+    const apiKey = process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY;
+    const amp = (
+      window as unknown as {
+        amplitude?: { init?: (apiKey: string, options?: { defaultTracking?: boolean }) => void };
+      }
+    ).amplitude;
+    if (!apiKey || !amp?.init) return;
     try {
-      w.amplitude.init("demo-api-key", { defaultTracking: true });
-    } catch {}
+      amp.init(apiKey, { defaultTracking: true });
+    } catch {
+      // no-op
+    }
   }, []);
   return null;
 }
