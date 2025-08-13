@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  /* Force dark palette */
+  --background: #111111;
+  --foreground: #ededed;
+  --sidebar-bg: var(--background);
+  --sidebar-border: rgba(255, 255, 255, 0.15);
+  --sidebar-hover: rgba(255, 255, 255, 0.1);
+}
+
+/* Theme tokens are fixed via CSS variables above (dark-only). */
+
+/* No light mode; variables already set to dark values */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer utilities {
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* small pseudo glitch using text-shadow */
+  .glitch::after {
+    content: attr(data-text);
+  }
+}
+
+/* keyframes y clases */
+@keyframes tiny-glitch {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-1px);
+  }
+  40% {
+    transform: translateX(1px);
+  }
+  60% {
+    transform: translateX(-0.5px);
+  }
+  80% {
+    transform: translateX(0.5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.glitch {
+  animation: tiny-glitch 1.2s infinite;
+  will-change: transform;
+}
+
+/* Optional: suave fade-in cuando cambia el banner */
+@keyframes fade-slide {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.banner-rotator .row {
+  animation: fade-slide 400ms ease both;
+}
+
+@keyframes progressGrow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.banner-rotator .progress {
+  animation: progressGrow linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch {
+    animation: none !important;
+  }
+  .banner-rotator .row {
+    animation: none !important;
+  }
+  .banner-rotator .progress {
+    animation: none !important;
+  }
+}

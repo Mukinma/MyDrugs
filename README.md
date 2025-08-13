@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # 💊 MyDrugs – Modern Recreation
 
 _Recreación moderna e interactiva de la ficticia tienda online **MyDrugs** inspirada en la serie **How to Sell Drugs Online (Fast)**.  
@@ -17,8 +19,9 @@ Una experiencia visual que combina narrativa en tiempo real, estética clandesti
 ---
 
 ## 🖼 Vista previa
+
 > _Capturas de pantalla del prototipo inicial de la página._
-  
+
 ![Screenshot](./screenshot.png)
 
 ---
@@ -63,4 +66,4 @@ No promueve ni facilita actividades ilegales. Todo el contenido es ficticio e in
 
 Inspirado por la serie How to Sell Drugs Online (Fast) de Netflix.
 
-Desarrollado por Mukinma.
+# Desarrollado por Mukinma.
