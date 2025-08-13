@@ -76,7 +76,7 @@ export default function SafetyPage() {
             <ul className="list-disc pl-5 text-sm leading-relaxed text-white/80">
               <li>Actualiza dispositivos y aplicaciones con regularidad.</li>
               <li>Activa verificación en dos pasos y usa gestores de contraseñas.</li>
-              <li>Evita publicar datos sensibles y desconfía de "ofertas" milagrosas.</li>
+              <li>Evita publicar datos sensibles y desconfía de &quot;ofertas&quot; milagrosas.</li>
             </ul>
           </Details>
           <Details title="Apoyo y cuidados">
